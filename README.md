@@ -28,10 +28,10 @@ dvc init
 dvc add data_given/winequality.csv
 git add .
 git commit -m "first commit"
-oneliner updates for readme
+oneline updates for readme
 
 git add . && git commit -m "update Readme.md"
-git remote add origin https://github.com/c17hawke/simple-dvc-demo.git
+git remote add origin https://github.com/syborg2290/wine_quality_mlflow.git
 git branch -M main
 git push origin main
 tox command -
