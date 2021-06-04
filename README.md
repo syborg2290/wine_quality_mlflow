@@ -39,20 +39,19 @@ Run dvc -> dvc repro
 show metrics of training and model -> dvc metrics show
 show history of metrics values -> dvc metrics diff
 
-tox command -
-
+tox commands - (testing section)
 tox
+
 for rebuilding -
-
 tox -r
+
 pytest command
-
 pytest -v
+
 setup commands -
-
 pip install -e .
-build your own package commands-
 
+build your own package commands-
 python setup.py sdist bdist_wheel
 
 
