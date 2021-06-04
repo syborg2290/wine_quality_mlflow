@@ -9,6 +9,212 @@
         "documentation": {}
     },
     {
+        "label": "yaml",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "yaml",
+        "description": "yaml",
+        "detail": "yaml",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "argparse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "argparse",
+        "description": "argparse",
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "read_params",
+        "importPath": "get_data",
+        "description": "get_data",
+        "isExtraImport": true,
+        "detail": "get_data",
+        "documentation": {}
+    },
+    {
+        "label": "get_data",
+        "importPath": "get_data",
+        "description": "get_data",
+        "isExtraImport": true,
+        "detail": "get_data",
+        "documentation": {}
+    },
+    {
+        "label": "read_params",
+        "importPath": "get_data",
+        "description": "get_data",
+        "isExtraImport": true,
+        "detail": "get_data",
+        "documentation": {}
+    },
+    {
+        "label": "read_params",
+        "importPath": "get_data",
+        "description": "get_data",
+        "isExtraImport": true,
+        "detail": "get_data",
+        "documentation": {}
+    },
+    {
+        "label": "train_test_split",
+        "importPath": "sklearn.model_selection",
+        "description": "sklearn.model_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.model_selection",
+        "documentation": {}
+    },
+    {
+        "label": "train_test_split",
+        "importPath": "sklearn.model_selection",
+        "description": "sklearn.model_selection",
+        "isExtraImport": true,
+        "detail": "sklearn.model_selection",
+        "documentation": {}
+    },
+    {
+        "label": "warnings",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "warnings",
+        "description": "warnings",
+        "detail": "warnings",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "mean_squared_error",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "mean_absolute_error",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "r2_score",
+        "importPath": "sklearn.metrics",
+        "description": "sklearn.metrics",
+        "isExtraImport": true,
+        "detail": "sklearn.metrics",
+        "documentation": {}
+    },
+    {
+        "label": "ElasticNet",
+        "importPath": "sklearn.linear_model",
+        "description": "sklearn.linear_model",
+        "isExtraImport": true,
+        "detail": "sklearn.linear_model",
+        "documentation": {}
+    },
+    {
+        "label": "joblib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "joblib",
+        "description": "joblib",
+        "detail": "joblib",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "read_params",
+        "kind": 2,
+        "importPath": "src.get_data",
+        "description": "src.get_data",
+        "peekOfCode": "def read_params(config_path):\n    with open(config_path) as yaml_file:\n        config = yaml.safe_load(yaml_file)\n    return config\ndef get_data(config_path):\n    config = read_params(config_path)\n    # print(config)\n    data_path = config[\"data_source\"][\"s3_source\"]\n    df = pd.read_csv(data_path, sep=\",\", encoding='utf-8')\n    # print(df)",
+        "detail": "src.get_data",
+        "documentation": {}
+    },
+    {
+        "label": "get_data",
+        "kind": 2,
+        "importPath": "src.get_data",
+        "description": "src.get_data",
+        "peekOfCode": "def get_data(config_path):\n    config = read_params(config_path)\n    # print(config)\n    data_path = config[\"data_source\"][\"s3_source\"]\n    df = pd.read_csv(data_path, sep=\",\", encoding='utf-8')\n    # print(df)\n    return df\nif __name__ == \"__main__\":\n    args = argparse.ArgumentParser()\n    args.add_argument(\"--config\", default=\"params.yaml\")",
+        "detail": "src.get_data",
+        "documentation": {}
+    },
+    {
+        "label": "load_and_save",
+        "kind": 2,
+        "importPath": "src.load_data",
+        "description": "src.load_data",
+        "peekOfCode": "def load_and_save(config_path):\n    config = read_params(config_path)\n    df = get_data(config_path)\n    # Replace all the columns with _ that have a space between two word column\n    new_cols = [col.replace(\" \", \"_\") for col in df.columns]\n    # print(new_cols)\n    raw_data_path = config[\"load_data\"][\"raw_dataset_csv\"]\n    df.to_csv(raw_data_path, sep=\",\", index=False, header=new_cols)\nif __name__ == \"__main__\":\n    args = argparse.ArgumentParser()",
+        "detail": "src.load_data",
+        "documentation": {}
+    },
+    {
+        "label": "split_and_saved_data",
+        "kind": 2,
+        "importPath": "src.split_data",
+        "description": "src.split_data",
+        "peekOfCode": "def split_and_saved_data(config_path):\n    config = read_params(config_path)\n    test_data_path = config[\"split_data\"][\"test_path\"]\n    train_data_path = config[\"split_data\"][\"train_path\"]\n    raw_data_path = config[\"load_data\"][\"raw_dataset_csv\"]\n    split_ratio = config[\"split_data\"][\"test_size\"]\n    random_state = config[\"base\"][\"random_state\"]\n    df = pd.read_csv(raw_data_path, sep=\",\")\n    train, test = train_test_split(\n        df,",
+        "detail": "src.split_data",
+        "documentation": {}
+    },
+    {
+        "label": "eval_metrics",
+        "kind": 2,
+        "importPath": "src.train_and_evaluate",
+        "description": "src.train_and_evaluate",
+        "peekOfCode": "def eval_metrics(actual, pred):\n    rmse = np.sqrt(mean_squared_error(actual, pred))\n    mae = mean_absolute_error(actual, pred)\n    r2 = r2_score(actual, pred)\n    return rmse, mae, r2\ndef train_and_evaluate(config_path):\n    config = read_params(config_path)\n    test_data_path = config[\"split_data\"][\"test_path\"]\n    train_data_path = config[\"split_data\"][\"train_path\"]\n    random_state = config[\"base\"][\"random_state\"]",
+        "detail": "src.train_and_evaluate",
+        "documentation": {}
+    },
+    {
+        "label": "train_and_evaluate",
+        "kind": 2,
+        "importPath": "src.train_and_evaluate",
+        "description": "src.train_and_evaluate",
+        "peekOfCode": "def train_and_evaluate(config_path):\n    config = read_params(config_path)\n    test_data_path = config[\"split_data\"][\"test_path\"]\n    train_data_path = config[\"split_data\"][\"train_path\"]\n    random_state = config[\"base\"][\"random_state\"]\n    model_dir = config[\"model_dir\"]\n    alpha = config[\"estimators\"][\"ElasticNet\"][\"params\"][\"alpha\"]\n    l1_ratio = config[\"estimators\"][\"ElasticNet\"][\"params\"][\"l1_ratio\"]\n    target = [config[\"base\"][\"target_col\"]]\n    train = pd.read_csv(train_data_path, sep=\",\")",
+        "detail": "src.train_and_evaluate",
+        "documentation": {}
+    },
+    {
         "label": "dirs",
         "kind": 5,
         "importPath": "template",

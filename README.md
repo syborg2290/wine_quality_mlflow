@@ -34,6 +34,11 @@ git add . && git commit -m "update Readme.md"
 git remote add origin https://github.com/syborg2290/wine_quality_mlflow.git
 git branch -M main
 git push origin main
+
+Run dvc -> dvc repro
+show metrics of training and model -> dvc metrics show
+show history of metrics values -> dvc metrics diff
+
 tox command -
 
 tox
