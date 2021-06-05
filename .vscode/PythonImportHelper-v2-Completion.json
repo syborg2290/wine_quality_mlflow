@@ -81,6 +81,94 @@
         "documentation": {}
     },
     {
+        "label": "win32api",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "win32api",
+        "description": "win32api",
+        "detail": "win32api",
+        "documentation": {}
+    },
+    {
+        "label": "argparse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "argparse",
+        "description": "argparse",
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "code",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "code",
+        "description": "code",
+        "detail": "code",
+        "documentation": {}
+    },
+    {
+        "label": "threading",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "threading",
+        "description": "threading",
+        "detail": "threading",
+        "documentation": {}
+    },
+    {
+        "label": "ssl",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "ssl",
+        "description": "ssl",
+        "detail": "ssl",
+        "documentation": {}
+    },
+    {
+        "label": "gzip",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "gzip",
+        "description": "gzip",
+        "detail": "gzip",
+        "documentation": {}
+    },
+    {
+        "label": "zlib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "zlib",
+        "description": "zlib",
+        "detail": "zlib",
+        "documentation": {}
+    },
+    {
+        "label": "urlparse",
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "isExtraImport": true,
+        "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
+        "label": "urlparse",
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "isExtraImport": true,
+        "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
+        "label": "websocket",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "websocket",
+        "description": "websocket",
+        "detail": "websocket",
+        "documentation": {}
+    },
+    {
         "label": "networkx",
         "kind": 6,
         "isExtraImport": true,
@@ -363,15 +451,6 @@
         "documentation": {}
     },
     {
-        "label": "gzip",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "gzip",
-        "description": "gzip",
-        "detail": "gzip",
-        "documentation": {}
-    },
-    {
         "label": "re",
         "kind": 6,
         "isExtraImport": true,
@@ -566,15 +645,6 @@
         "documentation": {}
     },
     {
-        "label": "argparse",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "argparse",
-        "description": "argparse",
-        "detail": "argparse",
-        "documentation": {}
-    },
-    {
         "label": "read_params",
         "importPath": "get_data",
         "description": "get_data",
@@ -604,6 +674,39 @@
         "description": "get_data",
         "isExtraImport": true,
         "detail": "get_data",
+        "documentation": {}
+    },
+    {
+        "label": "read_params",
+        "importPath": "src.get_data",
+        "description": "src.get_data",
+        "isExtraImport": true,
+        "detail": "src.get_data",
+        "documentation": {}
+    },
+    {
+        "label": "mlflow",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "mlflow",
+        "description": "mlflow",
+        "detail": "mlflow",
+        "documentation": {}
+    },
+    {
+        "label": "MlflowClient",
+        "importPath": "mlflow.tracking",
+        "description": "mlflow.tracking",
+        "isExtraImport": true,
+        "detail": "mlflow.tracking",
+        "documentation": {}
+    },
+    {
+        "label": "pprint",
+        "importPath": "pprint",
+        "description": "pprint",
+        "isExtraImport": true,
+        "detail": "pprint",
         "documentation": {}
     },
     {
@@ -661,23 +764,6 @@
         "description": "sklearn.linear_model",
         "isExtraImport": true,
         "detail": "sklearn.linear_model",
-        "documentation": {}
-    },
-    {
-        "label": "urlparse",
-        "importPath": "urllib.parse",
-        "description": "urllib.parse",
-        "isExtraImport": true,
-        "detail": "urllib.parse",
-        "documentation": {}
-    },
-    {
-        "label": "mlflow",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "mlflow",
-        "description": "mlflow",
-        "detail": "mlflow",
         "documentation": {}
     },
     {
@@ -842,7 +928,7 @@
         "kind": 2,
         "importPath": ".tox.py37.Scripts.pywin32_postinstall",
         "description": ".tox.py37.Scripts.pywin32_postinstall",
-        "peekOfCode": "def LoadSystemModule(lib_dir, modname):\n    # See if this is a debug build.\n    import importlib.util, importlib.machinery\n    suffix = '_d' if '_d.pyd' in importlib.machinery.EXTENSION_SUFFIXES else ''\n    filename = \"%s%d%d%s.dll\" % \\\n               (modname, sys.version_info[0], sys.version_info[1], suffix)\n    filename = os.path.join(lib_dir, \"pywin32_system32\", filename)\n    loader = importlib.machinery.ExtensionFileLoader(modname, filename)\n    spec = importlib.machinery.ModuleSpec(name=modname, loader=loader, origin=filename)\n    mod = importlib.util.module_from_spec(spec)",
+        "peekOfCode": "def LoadSystemModule(lib_dir, modname):\n    # See if this is a debug build.\n    import imp\n    for suffix_item in imp.get_suffixes():\n        if suffix_item[0]=='_d.pyd':\n            suffix = '_d'\n            break\n    else:\n        suffix = \"\"\n    filename = \"%s%d%d%s.dll\" % \\",
         "detail": ".tox.py37.Scripts.pywin32_postinstall",
         "documentation": {}
     },
@@ -914,7 +1000,7 @@
         "kind": 2,
         "importPath": ".tox.py37.Scripts.pywin32_postinstall",
         "description": ".tox.py37.Scripts.pywin32_postinstall",
-        "peekOfCode": "def uninstall(lib_dir):\n    # First ensure our system modules are loaded from pywin32_system, so\n    # we can remove the ones we copied...\n    LoadSystemModule(lib_dir, \"pywintypes\")\n    LoadSystemModule(lib_dir, \"pythoncom\")\n    try:\n        RegisterCOMObjects(False)\n    except Exception as why:\n        print(\"Failed to unregister COM objects: %s\" % (why,))\n    try:",
+        "peekOfCode": "def uninstall(lib_dir):\n    # First ensure our system modules are loaded from pywin32_system, so\n    # we can remove the ones we copied...\n    LoadSystemModule(lib_dir, \"pywintypes\")\n    LoadSystemModule(lib_dir, \"pythoncom\")\n    try:\n        RegisterCOMObjects(False)\n    except Exception as why:\n        print((\"Failed to unregister COM objects: %s\" % (why,)))\n    try:",
         "detail": ".tox.py37.Scripts.pywin32_postinstall",
         "documentation": {}
     },
@@ -968,7 +1054,7 @@
         "kind": 5,
         "importPath": ".tox.py37.Scripts.pywin32_postinstall",
         "description": ".tox.py37.Scripts.pywin32_postinstall",
-        "peekOfCode": "silent = 0\n# Verbosity of output messages.\nverbose = 1\nroot_key_name = \"Software\\\\Python\\\\PythonCore\\\\\" + sys.winver\ntry:\n    # When this script is run from inside the bdist_wininst installer,\n    # file_created() and directory_created() are additional builtin\n    # functions which write lines to Python23\\pywin32-install.log. This is\n    # a list of actions for the uninstaller, the format is inspired by what\n    # the Wise installer also creates.",
+        "peekOfCode": "silent = 0\n# Verbosity of output messages.\nverbose = 1\nver_string = \"%d.%d\" % (sys.version_info[0], sys.version_info[1])\nroot_key_name = \"Software\\\\Python\\\\PythonCore\\\\\" + ver_string\ntry:\n    # When this script is run from inside the bdist_wininst installer,\n    # file_created() and directory_created() are additional builtin\n    # functions which write lines to Python23\\pywin32-install.log. This is\n    # a list of actions for the uninstaller, the format is inspired by what",
         "detail": ".tox.py37.Scripts.pywin32_postinstall",
         "documentation": {}
     },
@@ -977,7 +1063,16 @@
         "kind": 5,
         "importPath": ".tox.py37.Scripts.pywin32_postinstall",
         "description": ".tox.py37.Scripts.pywin32_postinstall",
-        "peekOfCode": "verbose = 1\nroot_key_name = \"Software\\\\Python\\\\PythonCore\\\\\" + sys.winver\ntry:\n    # When this script is run from inside the bdist_wininst installer,\n    # file_created() and directory_created() are additional builtin\n    # functions which write lines to Python23\\pywin32-install.log. This is\n    # a list of actions for the uninstaller, the format is inspired by what\n    # the Wise installer also creates.\n    file_created\n    is_bdist_wininst = True",
+        "peekOfCode": "verbose = 1\nver_string = \"%d.%d\" % (sys.version_info[0], sys.version_info[1])\nroot_key_name = \"Software\\\\Python\\\\PythonCore\\\\\" + ver_string\ntry:\n    # When this script is run from inside the bdist_wininst installer,\n    # file_created() and directory_created() are additional builtin\n    # functions which write lines to Python23\\pywin32-install.log. This is\n    # a list of actions for the uninstaller, the format is inspired by what\n    # the Wise installer also creates.\n    file_created",
+        "detail": ".tox.py37.Scripts.pywin32_postinstall",
+        "documentation": {}
+    },
+    {
+        "label": "ver_string",
+        "kind": 5,
+        "importPath": ".tox.py37.Scripts.pywin32_postinstall",
+        "description": ".tox.py37.Scripts.pywin32_postinstall",
+        "peekOfCode": "ver_string = \"%d.%d\" % (sys.version_info[0], sys.version_info[1])\nroot_key_name = \"Software\\\\Python\\\\PythonCore\\\\\" + ver_string\ntry:\n    # When this script is run from inside the bdist_wininst installer,\n    # file_created() and directory_created() are additional builtin\n    # functions which write lines to Python23\\pywin32-install.log. This is\n    # a list of actions for the uninstaller, the format is inspired by what\n    # the Wise installer also creates.\n    file_created\n    is_bdist_wininst = True",
         "detail": ".tox.py37.Scripts.pywin32_postinstall",
         "documentation": {}
     },
@@ -986,7 +1081,7 @@
         "kind": 5,
         "importPath": ".tox.py37.Scripts.pywin32_postinstall",
         "description": ".tox.py37.Scripts.pywin32_postinstall",
-        "peekOfCode": "root_key_name = \"Software\\\\Python\\\\PythonCore\\\\\" + sys.winver\ntry:\n    # When this script is run from inside the bdist_wininst installer,\n    # file_created() and directory_created() are additional builtin\n    # functions which write lines to Python23\\pywin32-install.log. This is\n    # a list of actions for the uninstaller, the format is inspired by what\n    # the Wise installer also creates.\n    file_created\n    is_bdist_wininst = True\nexcept NameError:",
+        "peekOfCode": "root_key_name = \"Software\\\\Python\\\\PythonCore\\\\\" + ver_string\ntry:\n    # When this script is run from inside the bdist_wininst installer,\n    # file_created() and directory_created() are additional builtin\n    # functions which write lines to Python23\\pywin32-install.log. This is\n    # a list of actions for the uninstaller, the format is inspired by what\n    # the Wise installer also creates.\n    file_created\n    is_bdist_wininst = True\nexcept NameError:",
         "detail": ".tox.py37.Scripts.pywin32_postinstall",
         "documentation": {}
     },
@@ -995,7 +1090,7 @@
         "kind": 2,
         "importPath": ".tox.py37.Scripts.pywin32_testall",
         "description": ".tox.py37.Scripts.pywin32_testall",
-        "peekOfCode": "def run_test(script, cmdline_rest=\"\"):\n    dirname, scriptname = os.path.split(script)\n    # some tests prefer to be run from their directory.\n    cmd = [sys.executable, \"-u\", scriptname] + cmdline_rest.split()\n    print(script)\n    popen = subprocess.Popen(cmd, shell=True, cwd=dirname,\n                             stdout=subprocess.PIPE, stderr=subprocess.STDOUT)\n    data = popen.communicate()[0]\n    if sys.version_info > (3,):\n        sys.stdout.write(data.decode('latin-1'))",
+        "peekOfCode": "def run_test(script, cmdline_rest=\"\"):\n    dirname, scriptname = os.path.split(script)\n    # some tests prefer to be run from their directory.\n    cmd = [sys.executable, \"-u\", scriptname] + cmdline_rest.split()\n    print(script)\n    popen = subprocess.Popen(cmd, shell=True, cwd=dirname,\n                             stdout=subprocess.PIPE, stderr=subprocess.STDOUT)\n    data = popen.communicate()[0]\n    sys.stdout.buffer.write(data)\n    if popen.returncode:",
         "detail": ".tox.py37.Scripts.pywin32_testall",
         "documentation": {}
     },
@@ -1024,6 +1119,87 @@
         "description": ".tox.py37.Scripts.pywin32_testall",
         "peekOfCode": "site_packages = [site.getusersitepackages(), ] + site.getsitepackages()\n# Run a test using subprocess and wait for the result.\n# If we get an returncode != 0, we know that there was an error.\ndef run_test(script, cmdline_rest=\"\"):\n    dirname, scriptname = os.path.split(script)\n    # some tests prefer to be run from their directory.\n    cmd = [sys.executable, \"-u\", scriptname] + cmdline_rest.split()\n    print(script)\n    popen = subprocess.Popen(cmd, shell=True, cwd=dirname,\n                             stdout=subprocess.PIPE, stderr=subprocess.STDOUT)",
         "detail": ".tox.py37.Scripts.pywin32_testall",
+        "documentation": {}
+    },
+    {
+        "label": "VAction",
+        "kind": 6,
+        "importPath": ".tox.py37.Scripts.wsdump",
+        "description": ".tox.py37.Scripts.wsdump",
+        "peekOfCode": "class VAction(argparse.Action):\n    def __call__(self, parser, args, values, option_string=None):\n        if values is None:\n            values = \"1\"\n        try:\n            values = int(values)\n        except ValueError:\n            values = values.count(\"v\") + 1\n        setattr(args, self.dest, values)\ndef parse_args():",
+        "detail": ".tox.py37.Scripts.wsdump",
+        "documentation": {}
+    },
+    {
+        "label": "RawInput",
+        "kind": 6,
+        "importPath": ".tox.py37.Scripts.wsdump",
+        "description": ".tox.py37.Scripts.wsdump",
+        "peekOfCode": "class RawInput:\n    def raw_input(self, prompt):\n        line = input(prompt)\n        if ENCODING and ENCODING != \"utf-8\" and not isinstance(line, str):\n            line = line.decode(ENCODING).encode(\"utf-8\")\n        elif isinstance(line, str):\n            line = line.encode(\"utf-8\")\n        return line\nclass InteractiveConsole(RawInput, code.InteractiveConsole):\n    def write(self, data):",
+        "detail": ".tox.py37.Scripts.wsdump",
+        "documentation": {}
+    },
+    {
+        "label": "InteractiveConsole",
+        "kind": 6,
+        "importPath": ".tox.py37.Scripts.wsdump",
+        "description": ".tox.py37.Scripts.wsdump",
+        "peekOfCode": "class InteractiveConsole(RawInput, code.InteractiveConsole):\n    def write(self, data):\n        sys.stdout.write(\"\\033[2K\\033[E\")\n        # sys.stdout.write(\"\\n\")\n        sys.stdout.write(\"\\033[34m< \" + data + \"\\033[39m\")\n        sys.stdout.write(\"\\n> \")\n        sys.stdout.flush()\n    def read(self):\n        return self.raw_input(\"> \")\nclass NonInteractive(RawInput):",
+        "detail": ".tox.py37.Scripts.wsdump",
+        "documentation": {}
+    },
+    {
+        "label": "NonInteractive",
+        "kind": 6,
+        "importPath": ".tox.py37.Scripts.wsdump",
+        "description": ".tox.py37.Scripts.wsdump",
+        "peekOfCode": "class NonInteractive(RawInput):\n    def write(self, data):\n        sys.stdout.write(data)\n        sys.stdout.write(\"\\n\")\n        sys.stdout.flush()\n    def read(self):\n        return self.raw_input(\"\")\ndef main():\n    start_time = time.time()\n    args = parse_args()",
+        "detail": ".tox.py37.Scripts.wsdump",
+        "documentation": {}
+    },
+    {
+        "label": "get_encoding",
+        "kind": 2,
+        "importPath": ".tox.py37.Scripts.wsdump",
+        "description": ".tox.py37.Scripts.wsdump",
+        "peekOfCode": "def get_encoding():\n    encoding = getattr(sys.stdin, \"encoding\", \"\")\n    if not encoding:\n        return \"utf-8\"\n    else:\n        return encoding.lower()\nOPCODE_DATA = (websocket.ABNF.OPCODE_TEXT, websocket.ABNF.OPCODE_BINARY)\nENCODING = get_encoding()\nclass VAction(argparse.Action):\n    def __call__(self, parser, args, values, option_string=None):",
+        "detail": ".tox.py37.Scripts.wsdump",
+        "documentation": {}
+    },
+    {
+        "label": "parse_args",
+        "kind": 2,
+        "importPath": ".tox.py37.Scripts.wsdump",
+        "description": ".tox.py37.Scripts.wsdump",
+        "peekOfCode": "def parse_args():\n    parser = argparse.ArgumentParser(description=\"WebSocket Simple Dump Tool\")\n    parser.add_argument(\"url\", metavar=\"ws_url\",\n                        help=\"websocket url. ex. ws://echo.websocket.org/\")\n    parser.add_argument(\"-p\", \"--proxy\",\n                        help=\"proxy url. ex. http://127.0.0.1:8080\")\n    parser.add_argument(\"-v\", \"--verbose\", default=0, nargs='?', action=VAction,\n                        dest=\"verbose\",\n                        help=\"set verbose mode. If set to 1, show opcode. \"\n                        \"If set to 2, enable to trace  websocket module\")",
+        "detail": ".tox.py37.Scripts.wsdump",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": ".tox.py37.Scripts.wsdump",
+        "description": ".tox.py37.Scripts.wsdump",
+        "peekOfCode": "def main():\n    start_time = time.time()\n    args = parse_args()\n    if args.verbose > 1:\n        websocket.enableTrace(True)\n    options = {}\n    if args.proxy:\n        p = urlparse(args.proxy)\n        options[\"http_proxy_host\"] = p.hostname\n        options[\"http_proxy_port\"] = p.port",
+        "detail": ".tox.py37.Scripts.wsdump",
+        "documentation": {}
+    },
+    {
+        "label": "OPCODE_DATA",
+        "kind": 5,
+        "importPath": ".tox.py37.Scripts.wsdump",
+        "description": ".tox.py37.Scripts.wsdump",
+        "peekOfCode": "OPCODE_DATA = (websocket.ABNF.OPCODE_TEXT, websocket.ABNF.OPCODE_BINARY)\nENCODING = get_encoding()\nclass VAction(argparse.Action):\n    def __call__(self, parser, args, values, option_string=None):\n        if values is None:\n            values = \"1\"\n        try:\n            values = int(values)\n        except ValueError:\n            values = values.count(\"v\") + 1",
+        "detail": ".tox.py37.Scripts.wsdump",
+        "documentation": {}
+    },
+    {
+        "label": "ENCODING",
+        "kind": 5,
+        "importPath": ".tox.py37.Scripts.wsdump",
+        "description": ".tox.py37.Scripts.wsdump",
+        "peekOfCode": "ENCODING = get_encoding()\nclass VAction(argparse.Action):\n    def __call__(self, parser, args, values, option_string=None):\n        if values is None:\n            values = \"1\"\n        try:\n            values = int(values)\n        except ValueError:\n            values = values.count(\"v\") + 1\n        setattr(args, self.dest, values)",
+        "detail": ".tox.py37.Scripts.wsdump",
         "documentation": {}
     },
     {
@@ -3553,6 +3729,15 @@
         "description": "src.load_data",
         "peekOfCode": "def load_and_save(config_path):\n    config = read_params(config_path)\n    df = get_data(config_path)\n    # Replace all the columns with _ that have a space between two word column\n    new_cols = [col.replace(\" \", \"_\") for col in df.columns]\n    # print(new_cols)\n    raw_data_path = config[\"load_data\"][\"raw_dataset_csv\"]\n    df.to_csv(raw_data_path, sep=\",\", index=False, header=new_cols)\nif __name__ == \"__main__\":\n    args = argparse.ArgumentParser()",
         "detail": "src.load_data",
+        "documentation": {}
+    },
+    {
+        "label": "log_production_model",
+        "kind": 2,
+        "importPath": "src.log_producion_model",
+        "description": "src.log_producion_model",
+        "peekOfCode": "def log_production_model(config_path):\n    config = read_params(config_path)\n    mlflow_config = config[\"mlflow_config\"]\n    model_name = mlflow_config[\"registered_model_name\"]\n    remote_server_uri = mlflow_config[\"remote_server_uri\"]\n    mlflow.set_tracking_uri(remote_server_uri)\n    runs = mlflow.search_runs(experiment_ids=1)\n    lowest = runs[\"metrics.mae\"].sort_values(ascending=True)[0]\n    lowest_run_id = runs[runs[\"metrics.mae\"] == lowest][\"run_id\"][0]\n    client = MlflowClient()",
+        "detail": "src.log_producion_model",
         "documentation": {}
     },
     {
